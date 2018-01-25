@@ -67,6 +67,7 @@ task stage {
 }
 
 jar {
+    baseName 'RUN_ENGINE'
     manifest {
         attributes  'Main-Class': 'io.ktor.server.netty.DevelopmentEngine',
                 'Implementation-Title': 'My Project',
