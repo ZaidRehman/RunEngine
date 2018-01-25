@@ -1,11 +1,9 @@
-
-group 'com.coderdeer.runengine'
+group 'base-ktor-gradle'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.2.20'
-    ext.ktor_version = '0.9.0'
-
+    ext.kotlin_version = '1.2.21'
+    ext.ktor_version = '0.9.1-alpha-9'
 
     repositories {
         mavenCentral()
@@ -21,11 +19,15 @@ apply plugin: 'application'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-
 repositories {
     mavenCentral()
-    maven { url  "http://dl.bintray.com/kotlin/ktor" }
-    maven { url "https://dl.bintray.com/kotlin/kotlinx" }
+    maven {
+        url 'http://dl.bintray.com/kotlin/kotlinx.support'
+    }
+    maven {
+        url "http://dl.bintray.com/kotlin/ktor"
+    }
+    jcenter()
 }
 
 sourceSets {
@@ -37,25 +39,21 @@ sourceSets {
     }
 }
 
-mainClassName = 'io.ktor.server.netty.DevelopmentEngine'
+mainClassName = 'io.ktor.netty.DevelopmentHost'
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-
-    //ktor
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile "io.ktor:ktor-core:$ktor_version"
+    compile "io.ktor:ktor-locations:$ktor_version"
+    compile "io.ktor:ktor-html-builder:$ktor_version"
+    runtime "io.ktor:ktor-netty:$ktor_version"
     compile "io.ktor:ktor-server-core:$ktor_version"
     compile "io.ktor:ktor-server-netty:$ktor_version"
-
-    //JSON
-    compile "com.google.code.gson:gson:2.8.1"
-
-    //logging
-    compile "ch.qos.logback:logback-classic:1.2.1"
-
-    //kotlin mongo
-    compile 'org.litote.kmongo:kmongo:3.6.1'
+    compile "io.ktor:ktor-freemarker:$ktor_version"
+    compile "org.slf4j:slf4j-api:1.7.5"
+    compile "org.slf4j:slf4j-log4j12:1.7.5"
+    compile group: 'org.freemarker', name: 'freemarker', version: '2.3.14'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
 defaultTasks 'run'
@@ -70,7 +68,7 @@ task stage {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'org.jetbrains.ktor.netty.DevelopmentHost',
+        attributes  'Main-Class': 'io.ktor.netty.DevelopmentHost',
                 'Implementation-Title': 'My Project',
                 'Implementation-Version': '0.1'
     }
