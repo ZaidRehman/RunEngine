@@ -15,31 +15,29 @@ buildscript {
     }
 }
 
-
 apply plugin: 'kotlin'
 apply plugin: 'application'
 
-
 sourceCompatibility = 1.8
-mainClassName = 'io.ktor.server.netty.DevelopmentEngine'
+targetCompatibility = 1.8
 
-compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
-}
-compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
-}
-kotlin {
-    experimental {
-        coroutines "enable"
-    }
-}
 
 repositories {
     mavenCentral()
     maven { url  "http://dl.bintray.com/kotlin/ktor" }
     maven { url "https://dl.bintray.com/kotlin/kotlinx" }
 }
+
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/kotlin'
+    test {
+        kotlin {
+            srcDir "test/main/kotlin"
+        }
+    }
+}
+
+mainClassName = 'io.ktor.server.netty.DevelopmentEngine'
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
@@ -55,4 +53,30 @@ dependencies {
 
     //logging
     compile "ch.qos.logback:logback-classic:1.2.1"
+
+    //kotlin mongo
+    compile 'org.litote.kmongo:kmongo:3.6.1'
+}
+
+defaultTasks 'run'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "3.3"
+}
+
+task stage {
+    dependsOn installDist
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.jetbrains.ktor.netty.DevelopmentHost',
+                'Implementation-Title': 'My Project',
+                'Implementation-Version': '0.1'
+    }
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
 }

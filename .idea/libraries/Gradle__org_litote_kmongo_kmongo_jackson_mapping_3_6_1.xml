@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.litote.kmongo:kmongo-jackson-mapping:3.6.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.litote.kmongo/kmongo-jackson-mapping/3.6.1/e748ddb72012b01a1fa16b8590eea9e019530b51/kmongo-jackson-mapping-3.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.litote.kmongo/kmongo-jackson-mapping/3.6.1/2daa91efa029c9fe7242edaa49c053939900dbe6/kmongo-jackson-mapping-3.6.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
