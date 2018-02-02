@@ -1,1 +1,1 @@
-web: java -cp build/libs/*.jar org.jetbrains.ktor.netty.DevelopmentHost
+web: ./gradlew run

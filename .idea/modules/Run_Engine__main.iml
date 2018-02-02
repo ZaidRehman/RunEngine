@@ -36,7 +36,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: io.ktor:ktor-locations:0.9.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.ktor:ktor-netty:0.9.1" level="project" />
     <orderEntry type="library" name="Gradle: io.ktor:ktor-html-builder:0.9.1" level="project" />
     <orderEntry type="library" name="Gradle: io.ktor:ktor-freemarker:0.9.1" level="project" />
     <orderEntry type="library" name="Gradle: io.ktor:ktor-auth:0.9.1" level="project" />
