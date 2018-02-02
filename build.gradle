@@ -44,7 +44,7 @@ mainClassName = 'io.ktor.server.netty.DevelopmentEngine'
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    compile "io.ktor:ktor-core:$ktor_version"
+   // compile "io.ktor:ktor-core:$ktor_version"
     compile "io.ktor:ktor-locations:$ktor_version"
     compile "io.ktor:ktor-html-builder:$ktor_version"
     runtime "io.ktor:ktor-netty:$ktor_version"
@@ -77,19 +77,19 @@ task stage {
     dependsOn installDist
 }
 
-//jar {
-//    baseName 'RUN_ENGINE'
-//    manifest {
-//        attributes  'Main-Class': 'io.ktor.server.netty.DevelopmentEngine',
-//                'Implementation-Title': 'My Project',
-//                'Implementation-Version': '0.1'
-//    }
-//    from {
-//        configurations.compile.collect {
-//            it.isDirectory() ? it : zipTree(it)
-//        }
-//    }
-//}
+jar {
+    baseName 'RUN_ENGINE'
+    manifest {
+        attributes  'Main-Class': 'io.ktor.server.netty.DevelopmentEngine',
+                'Implementation-Title': 'My Project',
+                'Implementation-Version': '0.1'
+    }
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
 
 kotlin {
     experimental {
