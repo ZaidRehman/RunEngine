@@ -77,19 +77,19 @@ task stage {
     dependsOn installDist
 }
 
-jar {
-    baseName 'RUN_ENGINE'
-    manifest {
-        attributes  'Main-Class': 'io.ktor.server.netty.DevelopmentEngine',
-                'Implementation-Title': 'My Project',
-                'Implementation-Version': '0.1'
-    }
-    from {
-        configurations.compile.collect {
-            it.isDirectory() ? it : zipTree(it)
-        }
-    }
-}
+//jar {
+//    baseName 'RUN_ENGINE'
+//    manifest {
+//        attributes  'Main-Class': 'io.ktor.server.netty.DevelopmentEngine',
+//                'Implementation-Title': 'My Project',
+//                'Implementation-Version': '0.1'
+//    }
+//    from {
+//        configurations.compile.collect {
+//            it.isDirectory() ? it : zipTree(it)
+//        }
+//    }
+//}
 
 kotlin {
     experimental {
