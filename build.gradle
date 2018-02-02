@@ -47,7 +47,7 @@ dependencies {
    // compile "io.ktor:ktor-core:$ktor_version"
     compile "io.ktor:ktor-locations:$ktor_version"
     compile "io.ktor:ktor-html-builder:$ktor_version"
-    runtime "io.ktor:ktor-netty:$ktor_version"
+    //runtime "io.ktor:ktor-netty:$ktor_version"
     compile "io.ktor:ktor-server-core:$ktor_version"
     compile "io.ktor:ktor-server-netty:$ktor_version"
     compile "io.ktor:ktor-freemarker:$ktor_version"
