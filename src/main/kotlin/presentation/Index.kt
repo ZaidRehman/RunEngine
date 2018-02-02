@@ -1,5 +1,6 @@
 package presentation
 
+import connections.createMongoClient
 import data.Publishing
 import data.languages
 import data.projetsOnMain
@@ -13,6 +14,7 @@ import io.ktor.routing.get
 
 fun Route.indexRoute() {
     get("/") {
+        createMongoClient()
         val career = listOf(
                 Achievement("docplanner", "fa-stethoscope"),
                 Achievement("apreel", "fa-car"),
@@ -28,7 +30,7 @@ fun Route.indexRoute() {
                 Section("consulting", "nav.consulting", "Contact", "consulting.ftl", "testimonials navy-section")
         )
         val model = mapOf(
-                "title" to "Marcin Moskala website",
+                "title" to "Coder Deer",
                 "languages" to languages,
                 "sections" to sections,
                 "careers" to career,
@@ -36,7 +38,7 @@ fun Route.indexRoute() {
                 "projects" to projetsOnMain,
                 "speaking" to Publishing.all
         )
-        call.respond(FreeMarkerContent("index.ftl", model, "Index"))
+        call.respond(FreeMarkerContent("login.ftl", model, "Index"))
     }
 }
 

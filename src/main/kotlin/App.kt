@@ -9,10 +9,7 @@ import io.ktor.freemarker.FreeMarker
 import io.ktor.locations.Locations
 import io.ktor.routing.Routing
 import io.ktor.routing.route
-import presentation.indexRoute
-import presentation.learningRoute
-import presentation.projectsRoute
-import presentation.skillsRoute
+import presentation.*
 import java.io.File
 
 
@@ -28,6 +25,7 @@ class MMApp {
         install(Locations)
         install(Routing) {
             indexRoute()
+            authenticateRoute()
             skillsRoute()
             projectsRoute()
             learningRoute()
