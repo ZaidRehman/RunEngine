@@ -8,6 +8,7 @@
   <meta name="author" content="Marcin Moskala">
 
   <link rel="shortcut icon" href="">
+
   <title>Coder Deer</title>
 
 </head>
