@@ -1,6 +1,6 @@
 package presentation
 
-import connections.createMongoClient
+//import connections.createMongoClient
 import data.Publishing
 import data.languages
 import data.projetsOnMain
@@ -14,7 +14,7 @@ import io.ktor.routing.get
 
 fun Route.indexRoute() {
     get("/") {
-        createMongoClient()
+        //createMongoClient()
         val career = listOf(
                 Achievement("docplanner", "fa-stethoscope"),
                 Achievement("apreel", "fa-car"),

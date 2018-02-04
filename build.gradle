@@ -2,7 +2,7 @@ group 'base-ktor-gradle'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.2.21'
+    ext.kotlin_version = '1.2.30-eap-16'
     ext.ktor_version = '0.9.1'
     ext.fuel_version = '1.11.0'
 
@@ -44,10 +44,8 @@ mainClassName = 'io.ktor.server.netty.DevelopmentEngine'
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-   // compile "io.ktor:ktor-core:$ktor_version"
     compile "io.ktor:ktor-locations:$ktor_version"
     compile "io.ktor:ktor-html-builder:$ktor_version"
-    //runtime "io.ktor:ktor-netty:$ktor_version"
     compile "io.ktor:ktor-server-core:$ktor_version"
     compile "io.ktor:ktor-server-netty:$ktor_version"
     compile "io.ktor:ktor-freemarker:$ktor_version"
@@ -58,13 +56,13 @@ dependencies {
 
     //Mongo
     //compile 'org.litote.kmongo:kmongo:3.6.1'
-    compile 'org.mongodb:mongodb-driver:3.6.1'
+    //compile 'org.mongodb:mongodb-driver:3.6.1'
 
     // Fuel
-    compile "com.github.kittinunf.fuel:fuel:$fuel_version"
+    //compile "com.github.kittinunf.fuel:fuel:$fuel_version"
 
     //JBCrypt
-    compile group: 'org.mindrot', name: 'jbcrypt', version: '0.4'
+    //compile group: 'org.mindrot', name: 'jbcrypt', version: '0.4'
 }
 
 defaultTasks 'run'
