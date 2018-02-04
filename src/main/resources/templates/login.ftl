@@ -8,13 +8,14 @@
         <input type='text' name='username' id='username'/>
         <input type='password' name='password' id='password'/>
         <button type='submit'> LOGIN </button>
+
     </form>
 </div>
 <br>
 <div>
     <form action = '/register' method='POST'>
-        <input type='text' name='username' id='username'/>
-        <input type='password' name='password' id='password'/>
+        <input type='text' name='username2' id='username2'/>
+        <input type='password' name='password2' id='password2'/>
         <button type='submit'> Register </button>
     </form>
 </div>
